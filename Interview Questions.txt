@@ -1,0 +1,186 @@
+----------------------------------------------------
+Architecture | Server side
+----------------------------------------------------
+1. How to use microservice in monolythic app?
+2. TCP vs UDP?
+3. Web Farm and Web garden?
+          - Both web-garden and web-farm are web hosting systems. The only difference is that web-garden is a setup that                   includes many processors in a single server. At the same time,web-farm is a larger setup that uses more than one               server.
+          
+4. S3
+5. Api gateway for lambda
+6. SQS
+7. lambda functions properties and limitations
+
+----------------------------------------------------
+Database
+----------------------------------------------------
+Some good resources 
+          <---------------- https://simplesqltutorials.com/ ------------------>
+
+1. What is redis and memcache?
+2. __v in mongoose document?
+          - denotes versionKey
+          
+3. Difference between postgres vs mysql?
+4. What are inner queries (subqueries)?
+5. Indexing in MongoDB? 
+          - Hint: to increase speed
+ 
+6. Indexing         https://www.geeksforgeeks.org/indexing-in-databases-set-1/
+7. Composite Key
+8. DB Engines
+9. Stored Procedures
+10. [B-Tree, Bitmap, Hash] index
+11. Joins
+12. Normalizations
+          https://www.freecodecamp.org/news/database-normalization-1nf-2nf-3nf-table-examples/
+
+13. ACID Properties
+14. Isolation levels
+15. Transactions
+16. Sharding        
+          https://www.techtarget.com/searchoracle/definition/sharding
+          https://stackoverflow.com/questions/20388923/database-partitioning-horizontal-vs-vertical-difference-between-               normalizatio
+
+17. Clustering
+          https://iq.opengenus.org/database-clustering/
+
+18. SHARDING VS CLUSTERING CORE DIFFERENCE
+          
+          Clustering is used to improve the availability and reliability of a system by replicating data and services across multiple nodes in a cluster. Each node in the cluster is capable of handling requests and can take over the work of another node in case of a failure. Clustering is typically used in high-availability scenarios where the goal is to ensure that the system remains available even in the event of a hardware or software failure. Clustering is commonly used in databases, web servers, and application servers.
+
+Sharding, on the other hand, is used to improve the scalability of a system by partitioning data across multiple nodes in a cluster. Each node in the cluster is responsible for a subset of the data and can handle requests related to that data. Sharding is typically used in situations where the amount of data being stored or processed is too large for a single node to handle. Sharding is commonly used in large-scale databases, such as those used by social media platforms and search engines.
+
+----------------------------------------------------
+NODE Js
+----------------------------------------------------
+1. Why use Node js?
+2. Difference between fork and spawn?
+3. JWT??
+5. PUT vs PATCH?
+6. stateless vs statefull?
+7. Design pattern node js is based on?
+8. Rest api?
+          - RESTful is a design pattern concept. Rest Api's can be understood as Statefull api's that sends objects to be                 treated as resources and on basis of that resources objects are created and destroyed on the backend.
+
+            More to read on : https://stackoverflow.com/questions/4663927/what-is-rest-slightly-confused
+
+9. Processed vs Global keyword?
+10. What would be the procedure to maintain the activity logs in application? If something fails how would you handle?
+11. Anyone can update anything in npm package, how can you choose npm package?
+12. How would you write in streams?
+13. General request lifecycle of request when client enters any domain?
+14. Reconnect database when crashed.
+15. Sessions vs cookies?
+
+----------------------------------------------------
+JavaScript
+----------------------------------------------------
+1. Immutable and Mutable in js?
+2. Pass by reference vs pass by value?
+3. Shallow copy vs deep copy?
+4. map vs forEach? => forEach returns undefined
+5. Difference between Callbacks and promises?
+          - core difference is promise will always return response but callbacks might not return sometimes.
+          
+6. Spread operator?
+7. Hoisting?
+8. Event Loop??
+9. Pure funuctions?
+10. setTimeout()?
+11. setInterval() & clearInterval()?
+          myInterval = setInterval(function, milliseconds);
+          clearInterval(myInterval);
+          
+12. Navigatorr?
+          - Window.navigator;
+          
+13. Js data types?
+14. primitives & non-primitives?
+15. let, var, const?
+16. Temporal dead zone?
+17. Hoisting?
+18. Event loop?
+19. spread vs rest?
+20. Iterator?
+21. map vs filter?
+22. this vs window?
+23. First class functions?
+24. Higher order functions?
+25. Generator functions?
+26. call/apply/bind?
+27. this in conventional function vs this in arrow function?           
+28. prototype functions for inheritance in older versions and es6 in js?
+29. prototype vs __proto
+          - prototype function is created for every functional object initialization and is for to share common things between             instances, where __proto__ is for every instance that points to prototype function.
+          
+30. What is currying?
+31. write body of multiply(5)(6)
+          multiply(num1){
+                    inner(num2){}
+          }
+          
+32. Guess the output?
+          console.log('1');
+          setImmediate(console.log('2'));
+          setTimeout(console.log('3');
+          console.log('4');
+          
+33. Write the executable order of following 
+          async function temp(){
+                    await new Promise((resolve, reject) => {
+                              resolve(setTimeout(() => {console.log("This")}, 1000))
+
+                    })
+                    await setTimeout(() => {console.log("is")}, 2000);
+                    await setTimeout(() => {console.log("not")}, 1000);
+                    console.log("correct);
+                    setTimeout(() => {console.log("order")}, 0);
+          } 
+          // Correct Output -> correct order this not is
+          
+34. Difference between function scope and block scope?
+          function foo() {
+                    console.log('before block: ' + bar);      // prints 'undefined'
+                    if(true) {
+                        var bar = 1;
+                        console.log('inside block: ' + bar);  // prints 1
+                    }
+                    console.log('outisde block: ' + bar);     // prints 1
+          }
+          
+35. "arguments" keyword in regular vs arrow functions
+                    function sumRegFunc(a, b){
+                        console.log(arguments)
+                    }
+
+                    const sumArrFunc = (a, b) => {
+                        console.log(arguments); // return object but not bound to args, but can                     // be                                                           // accessed by rest operator
+                    }
+
+                    const sumArrFuncUsingSpread = (...args) => {
+                        console.log(...args);
+                    }
+
+                    sumArrFuncUsingSpread(1,2);
+
+
+
+----------------------------------------------------
+Problem Solving
+----------------------------------------------------
+1. Find Greatest Ccommon Divisor?
+          const array = [4,8,12]
+          const counter = 0;
+
+          array.map(elm => {
+                    if(elm % 4 == 0){
+                              counter++;
+                              if(counter == array.length){
+                              return 4;
+                              }	
+                    }
+                    else{
+                    return 0;
+                    }
+          })
